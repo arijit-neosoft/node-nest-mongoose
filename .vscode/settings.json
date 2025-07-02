@@ -1,0 +1,43 @@
+{
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "editor.renderWhitespace": "trailing",
+  "editor.rulers": [140],
+  "editor.suggest.selectionMode": "always",
+  "editor.formatOnSave": true,
+  "editor.wordWrap": "off",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "explorer.autoReveal": false,
+  "explorer.compactFolders": false,
+  "explorer.sortOrder": "type",
+  "workbench.editor.enablePreview": true,
+  "terminal.integrated.scrollback": 100000000,
+  "workbench.editorAssociations": {
+    "*.md": "vscode.markdown.preview.editor"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "indentRainbow.includedLanguages": ["yaml", "dockercompose"],
+  "code-runner.executorMap": {
+    "typescript": "tsx",
+    "javascript": "tsx"
+  }
+}
