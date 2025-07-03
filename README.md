@@ -28,6 +28,10 @@ nest generate controller [name]
 nest generate service [name]
 ```
 
+```
+nest generate resource [name]
+```
+
 ---
 
 ## App Start
