@@ -45,10 +45,16 @@ nest generate resource [name]
 
 ---
 
-## App Start
+## Run - Dev
+
+`make env file: .env.dev`
 
 ```
 npm i
+```
+
+```
+docker compose -f ./compose.db.yaml --env-file ./.env.dev up --build -d
 ```
 
 ```
