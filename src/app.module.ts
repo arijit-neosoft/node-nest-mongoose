@@ -1,12 +1,14 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { AuthModule } from './auth/auth.module';
-import { ConfigModule } from './config/config.module';
-import { UserModule } from './user/user.module';
+import { MongooseModule } from '@nestjs/mongoose';
+
+import { AppController } from './app.controller.js';
+import { AppService } from './app.service.js';
+import { ConfigModule } from './config/config.module.js';
+import { AuthModule } from './module/auth/auth.module.js';
+import { UserModule } from './module/user/user.module.js';
 
 @Module({
-  imports: [AuthModule, ConfigModule, UserModule],
+  imports: [MongooseModule.forRoot('mongodb://root:password@localhost:27017/mydb?authSource=admin'), AuthModule, ConfigModule, UserModule],
   controllers: [AppController],
   providers: [AppService],
 })
