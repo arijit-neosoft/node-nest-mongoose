@@ -6,15 +6,17 @@ import { AppModule } from './app.module.js';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  const config = new DocumentBuilder()
+  const swagger = new DocumentBuilder()
     .setTitle('Node Nest')
     .setDescription('Rest Api Server built using - Node.js, Nest.js')
     .setVersion('v1')
     .build();
-  const documentFactory = () => SwaggerModule.createDocument(app, config);
+  const documentFactory = () => SwaggerModule.createDocument(app, swagger);
   SwaggerModule.setup('api', app, documentFactory);
 
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(process.env.PORT ?? 4003, () => {
+    console.log(`server running at: 🚀 http://localhost:${process.env.PORT ?? 4003} 🚀`);
+  });
 }
 
 void bootstrap();
