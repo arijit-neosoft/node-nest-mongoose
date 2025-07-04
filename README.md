@@ -1,4 +1,15 @@
-# Node Nest.js
+# Node-Nest-Mongoose
+
+---
+
+## Stack
+
+- `node.js`
+- `nest.js`
+- `rest-api`
+- `mongodb`
+- `mongoose`
+- `typescript`
 
 ---
 
