@@ -15,7 +15,7 @@
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "format": "prettier --config ./prettier.config.js --write ./src ./*.{ts,js,json}",
-    "lint": "eslint --config ./eslint.config.js --fix ./src ./*.{ts,js}",
+    "lint": "eslint --debug --config ./eslint.config.js --fix ./src ./*.{ts,js}",
     "type-check": "tsc --noEmit",
     "pre-commit": "npm run format && npm run lint && npm run type-check"
   },
