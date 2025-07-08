@@ -16,7 +16,6 @@
 
     "declaration": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": true,
