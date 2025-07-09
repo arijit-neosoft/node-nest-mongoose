@@ -1,5 +1,6 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument, Types } from 'mongoose';
+import { Global, Module } from '@nestjs/common';
+import { MongooseModule, Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Types } from 'mongoose';
 
 export enum Role {
   ADMIN = 'ADMIN',
@@ -43,5 +44,11 @@ export class User {
   updatedAt: Date; // auto generated as timestamps: true
 }
 
-export const UserSchema = SchemaFactory.createForClass(User);
-export type UserDocument = HydratedDocument<User>;
+const UserSchema = SchemaFactory.createForClass(User);
+
+@Global()
+@Module({
+  imports: [MongooseModule.forFeature([{ name: User.name, schema: UserSchema }])],
+  exports: [MongooseModule],
+})
+export class UserModelModule {}
