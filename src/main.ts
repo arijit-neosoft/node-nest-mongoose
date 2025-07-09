@@ -16,7 +16,7 @@ async function bootstrap() {
   SwaggerModule.setup('api', app, documentFactory);
 
   await app.listen(appConfig.app.APP_PORT, () => {
-    console.log(`server running at: 🚀 http://localhost:${appConfig.app.APP_PORT ?? 4003} 🚀`);
+    console.log(`server running at: 🚀 http://localhost:${appConfig.app.APP_PORT} 🚀`);
   });
 }
 
