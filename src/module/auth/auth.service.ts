@@ -6,6 +6,7 @@ import { Model } from 'mongoose';
 
 import { appConfig } from '../../config/appConfig.js';
 import { IServiceResponse } from '../../interface/appResponse.inteface.js';
+import { EmailService } from '../../lib/emailService.lib.js';
 import { TokenModel, TokenType } from '../../model/token.model.js';
 import { UserModel } from '../../model/user.model.js';
 import { DTO_SignupInput } from './dto/signup.input.js';
@@ -18,6 +19,7 @@ export class AuthService {
   ) {}
 
   async signup(signupInput: DTO_SignupInput): Promise<IServiceResponse> {
+    // throw new Error("LOLLLLLL")
     const emailExist = await this.userModel.findOne({ email: signupInput.email });
     if (emailExist) throw new HttpException('Email already exist', HttpStatus.BAD_REQUEST);
 
@@ -41,8 +43,11 @@ export class AuthService {
 
     await this.tokenModel.create({ user: newUser._id, token: verifyToken, tokenType: TokenType.VERIFY_TOKEN });
 
+    await EmailService.sendEmail('User Verification Link', `token: ${verifyToken}`, signupInput.email);
+
     return {
       success: true,
+      statusCode: HttpStatus.CREATED,
       message: 'signup success, proceed to verification',
       data: {},
     };

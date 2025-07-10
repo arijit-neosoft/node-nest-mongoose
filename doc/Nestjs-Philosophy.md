@@ -21,7 +21,7 @@ Lets say there are **_HealthModule_**, **_AuthModule_** and **_UserModule_**
 `controllers: [UserController]`<br>
 `providers: [UserService]`
 
-**_Health Module_**, **_Auth Module_** and **_UserModule_** is being imported in **_AppModule_**<br>
+**_HealthModule_**, **_AuthModule_** and **_UserModule_** is being imported in **_AppModule_**<br>
 `imports: [HealthModule, AuthModule, UserModule]`
 
 ✅ `AuthController` and `AuthService` will work inside **_AuthModule_**.
