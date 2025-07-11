@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken';
@@ -6,6 +6,7 @@ import { Model } from 'mongoose';
 
 import { appConfig } from '../../config/appConfig.js';
 import { IServiceResponse } from '../../interface/appResponse.inteface.js';
+import { AppException } from '../../lib/appException.lib.js';
 import { EmailService } from '../../lib/emailService.lib.js';
 import { TokenModel, TokenType } from '../../model/token.model.js';
 import { UserModel } from '../../model/user.model.js';
@@ -21,10 +22,10 @@ export class AuthService {
   async signup(signupInput: DTO_SignupInput): Promise<IServiceResponse> {
     // throw new Error("LOLLLLLL")
     const emailExist = await this.userModel.findOne({ email: signupInput.email });
-    if (emailExist) throw new HttpException('Email already exist', HttpStatus.BAD_REQUEST);
+    if (emailExist) throw new AppException({ message: 'Email already exist', error: {} }, HttpStatus.BAD_REQUEST);
 
     const phoneExist = await this.userModel.findOne({ phoneNumber: signupInput.phoneNumber });
-    if (phoneExist) throw new HttpException('Phone number already exist', HttpStatus.BAD_REQUEST);
+    if (phoneExist) throw new AppException({ message: 'Phone number already exist', error: {} }, HttpStatus.BAD_REQUEST);
 
     const passwordHash = await bcryptjs.hash(signupInput.password, 10);
 
