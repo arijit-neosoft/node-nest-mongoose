@@ -20,7 +20,6 @@ export class AuthService {
   ) {}
 
   async signup(signupInput: DTO_SignupInput): Promise<IServiceResponse> {
-    // throw new Error("LOLLLLLL")
     const emailExist = await this.userModel.findOne({ email: signupInput.email });
     if (emailExist) throw new AppException({ message: 'Email already exist', error: {} }, HttpStatus.BAD_REQUEST);
 
