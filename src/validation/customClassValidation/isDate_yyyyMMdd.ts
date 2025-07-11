@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { registerDecorator, type ValidationArguments, type ValidationOptions } from 'class-validator';
 import { isMatch } from 'date-fns';
 

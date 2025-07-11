@@ -14,12 +14,12 @@ export class GlobalExceptionFilter implements ExceptionFilter {
     const request = ctx.getRequest<Request>();
 
     if (exception.name === 'AppException') {
-      response
+      return response
         .status(exception.getStatus())
         .json({ success: false, statusCode: exception.getStatus(), message: exception.message, error: exception.getResponse().error });
     }
 
-    response
+    return response
       .status(HttpStatus.INTERNAL_SERVER_ERROR)
       .json({ success: false, statusCode: HttpStatus.INTERNAL_SERVER_ERROR, message: 'error', error: {} });
   }
