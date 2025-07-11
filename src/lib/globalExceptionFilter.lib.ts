@@ -14,13 +14,19 @@ export class GlobalExceptionFilter implements ExceptionFilter {
     const request = ctx.getRequest<Request>();
 
     if (exception.name === 'AppException') {
-      return response
-        .status(exception.getStatus())
-        .json({ success: false, statusCode: exception.getStatus(), message: exception.message, error: exception.getResponse().error });
+      return response.status(exception.getStatus()).json({
+        success: false,
+        statusCode: exception.getStatus(),
+        message: exception.message,
+        error: exception.getResponse().error,
+      });
     }
 
-    return response
-      .status(HttpStatus.INTERNAL_SERVER_ERROR)
-      .json({ success: false, statusCode: HttpStatus.INTERNAL_SERVER_ERROR, message: 'error', error: {} });
+    return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
+      success: false,
+      statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+      message: 'error',
+      error: {},
+    });
   }
 }
