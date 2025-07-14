@@ -1,4 +1,4 @@
-name: procurement-management-db
+name: node-nest-mongoose-db
 
 services:
   mongodb:
