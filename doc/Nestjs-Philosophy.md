@@ -2,7 +2,7 @@
 
 ---
 
-## Intro
+## 🧠 Intro
 
 **_AppModule_** is the `root module`<br>
 It Bootstraps the listed modules in the `imports`
@@ -34,7 +34,7 @@ Lets say there are **_HealthModule_**, **_AuthModule_** and **_UserModule_**
 
 ---
 
-## Visual Breakdown
+## 🧠 Visual Breakdown
 
 **_AppModule_**<br>
 ├── **_AuthModule_** 👈 registers `AuthController` & `AuthService`<br>
@@ -52,7 +52,7 @@ Lets say there are **_HealthModule_**, **_AuthModule_** and **_UserModule_**
 
 ---
 
-## @Global()
+## 🧠 @Global()
 
 It registers the module once globally for the entire app.<br>
 All `exported providers` from that module become available to all other modules without needing to re-import it.
@@ -61,7 +61,7 @@ You must import a `@Global() module` exactly once — but it can be in `any modu
 
 ---
 
-## Why only providers are exported/imported?
+## 🧠 Why only providers are exported/imported?
 
 **Modules** are dependency containers<br>
 What they expose to other **modules** is not their **controllers**, but the `services (providers)` that encapsulate business logic or shared behavior
