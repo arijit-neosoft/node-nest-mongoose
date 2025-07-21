@@ -6,9 +6,7 @@
 
 `Dependency Injection` is a design pattern that deals with how components get their dependencies (services, modules, etc.), instead of creating them directly.
 
-```
-Instead of a class/module creating the things it depends on, they are provided (injected) from the outside.
-```
+**Instead of a class/module creating the things it depends on, they are provided (injected) from the outside**.
 
 ---
 
