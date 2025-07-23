@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { registerDecorator, type ValidationArguments, type ValidationOptions } from 'class-validator';
+import { registerDecorator, ValidationArguments, ValidationOptions } from 'class-validator';
 import { isMatch } from 'date-fns';
 
 export function IsDate_yyyyMMdd(validationOptions?: ValidationOptions) {
